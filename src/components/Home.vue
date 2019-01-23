@@ -1,7 +1,7 @@
 <template>
 <div class="home">
   <div class="container">
-    <alert v-if="alertTxt != ''" :alert-msg="alertTxt" @dismiss="closeAlert"></alert>
+    <alert v-if="alertTxt != ''" :alert-msg="alertTxt" :alert-type="alertType" @dismiss="closeAlert"></alert>
     <h2>个人电脑管理系统</h2>
     <div class="form-group">
       <div class="row">
@@ -47,7 +47,8 @@ export default {
     return {
       lists: [],
       searchTxt: '',
-      alertTxt: ''
+      alertTxt: '',
+      alertType: 'add'
     }
   },
   computed:{ // 搜索过滤后的列表
@@ -68,10 +69,10 @@ export default {
     AddPC(){ // 添加数据按钮触发的事件
       this.$router.push('/add');
     },
-    AddSuccess(){ // 添加数据成功后返回的数据
-      let txt = this.$route.params.info;
-      if(txt){
-        this.alertTxt = txt;
+    AddSuccess(){ // 添加或删除数据成功后返回的数据
+      let {type, info} = this.$route.params;
+      if(info){
+        [this.alertTxt, this.alertType] = [info, type];
       }
     },
     closeAlert(){ // 关闭alert警告框

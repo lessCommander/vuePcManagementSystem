@@ -1,6 +1,6 @@
 <template>
 <div class="alert">
-    <div class="alert alert-success">
+    <div class="alert" :class="alertType === 'add' ? 'alert-success' : 'alert-danger'">
       <button class="close" @click="dismiss">
         <span>&times;</span>
       </button>
@@ -16,6 +16,10 @@ export default {
     alertMsg: {
       type: String,
       default: ''
+    },
+    alertType: {
+      type: String,
+      default: 'add'
     }
   },
   methods:{

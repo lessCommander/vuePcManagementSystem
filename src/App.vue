@@ -11,11 +11,11 @@
               <router-link to="/">主页</router-link>
             </li>
             <li>
-              <router-link to="/about">关于我们</router-link>
+              <router-link to="/about">关于</router-link>
             </li>
           </ul>
           <div class="navbar-text navbar-right">
-            <a href="#">帮助</a>
+            <a href="#" title="暂无帮助">帮助</a>
           </div>
         </div>
       </div>
@@ -31,6 +31,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Add from './components/Add';
 import Detail from './components/Detail';
+import Edit from './components/Edit';
 
 Vue.use(VueRouter);
 
@@ -56,6 +57,11 @@ const router = new VueRouter({
       path: '/detail',
       name: 'detail',
       component: Detail
+    },
+    {
+      path: '/edit',
+      name: 'edit',
+      component: Edit
     }
   ]
 });

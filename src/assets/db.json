@@ -10,7 +10,9 @@
       "id": 2,
       "brand": "ASUS",
       "type": "A540UP7200",
-      "price": 3899
+      "price": 3899,
+      "date": "2018-12-31",
+      "description": "This is a nice computer!!"
     },
     {
       "id": 3,
@@ -19,84 +21,20 @@
       "price": 7899
     },
     {
-      "brand": "asus",
-      "type": "2118",
-      "price": 0,
-      "date": "",
-      "description": "",
-      "id": 5
-    },
-    {
-      "brand": "aaa",
-      "type": "2137",
-      "price": 0,
-      "date": "",
-      "description": "",
-      "id": 6
-    },
-    {
-      "brand": "asus",
-      "type": "20231",
-      "price": 0,
-      "date": "",
-      "description": "",
+      "brand": "神州电脑",
+      "type": "TB980",
+      "price": 3588,
+      "date": "2018-9-30",
+      "description": "e~~~!",
       "id": 7
     },
     {
-      "brand": "asus",
-      "type": "2139",
-      "price": 0,
-      "date": "",
-      "description": "",
+      "brand": "机械革命",
+      "type": "MR Q100",
+      "price": "24000",
+      "date": "2019-01-16",
+      "description": "机械革命实行全国范围联保(不包括港、澳、台地区)，自销售之日起7日内退货，15日内换货，15日以上在质保期内享受免费保修等三包服务。若出现保修范围之内的硬件故障时，均可凭《保修证书》(包含三包凭证)、和购机发票，到任何一家机械革命(MECHREVO)服务机构进行保修或拨打服务热线。",
       "id": 8
-    },
-    {
-      "brand": "delll",
-      "type": "t23",
-      "price": 0,
-      "date": "",
-      "description": "",
-      "id": 9
-    },
-    {
-      "brand": "asus",
-      "type": "r55",
-      "price": 0,
-      "date": "",
-      "description": "",
-      "id": 10
-    },
-    {
-      "brand": "dell",
-      "type": "abc",
-      "price": 0,
-      "date": "",
-      "description": "",
-      "id": 11
-    },
-    {
-      "brand": "asus",
-      "type": "2000",
-      "price": 0,
-      "date": "",
-      "description": "",
-      "id": 12
-    },
-    {
-      "brand": "bbb",
-      "type": "",
-      "price": 0,
-      "date": "",
-      "description": "",
-      "id": 13
-    },
-    {
-      "brand": "ccc",
-      "type": "",
-      "price": 0,
-      "date": "",
-      "description": "",
-      "id": 14
     }
   ]
 }

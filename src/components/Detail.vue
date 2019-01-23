@@ -1,12 +1,17 @@
 <template>
     <div class="detail">
         <div class="container">
-            <div class="h3">电脑配置详情</div>
             <div class="panel panel-default">
-                <div class="panel-heading">{{PCData.brand}}</div>
+                <div class="panel-heading">
+                    <div class="h4">电脑配置详情</div>
+                </div>
                 <div class="panel-body">
                     <table class="table table-bordered table-striped table-hover">
                         <tbody>
+                            <tr>
+                                <td>品牌</td>
+                                <td>{{PCData.brand}}</td>
+                            </tr>
                             <tr>
                                 <td>型号</td>
                                 <td>{{PCData.type}}</td>
@@ -19,13 +24,18 @@
                                 <td>生产日期</td>
                                 <td>{{PCData.date}}</td>
                             </tr>
+                            <tr>
+                                <td>产品简介</td>
+                                <td>{{PCData.description}}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
             <div class="pull-right">
-                <button class="btn btn-warning">编辑</button>
-                <button class="btn btn-danger" @click="delPC">删除</button>
+                <button class="btn btn-warning" @click="editPC()">编辑</button>
+                <button class="btn btn-danger" @click="delPC()">删除</button>
+                <button class="btn btn-default" @click="cancelPC()">返回</button>
             </div>
         </div>
     </div>
@@ -54,8 +64,27 @@ export default {
             method: 'delete',
             url: 'http://localhost:3000/computers/' + id
         })
-        .then(res => console.log(res));
-        // ...待完成
+        .then(res => {
+            this.$router.push({
+                name: 'home',
+                params: {
+                    type: 'delete',
+                    info: '删除电脑信息成功！'
+                }
+            });
+        });
+    },
+    editPC(){
+        let id = this.PCData.id;
+        this.$router.push({
+            name: 'edit',
+            params: {
+                id
+            }
+        });
+    },
+    cancelPC(){
+        this.$router.push('/');
     }
   },
   created() {

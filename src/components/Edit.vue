@@ -1,7 +1,7 @@
 <template>
-<div class="add">
+<div class="edit">
   <div class="container">
-    <h2>添加电脑</h2>
+    <h2>更新电脑信息</h2>
     <div class="well">
         <div class="h3 text-center">电脑信息</div>
         <form class="form-horizontal">
@@ -20,7 +20,7 @@
             <div class="form-group">
                 <label for="inp3" class="control-label col-sm-2">价格</label>
                 <div class="col-sm-4">
-                    <input type="number" id="inp3" class="form-control" placeholder="price" v-model="PCData.price">
+                    <input type="number" id="inp3" class="form-control" placeholder="price" v-model.number="PCData.price">
                 </div>
             </div>
             <div class="form-group">
@@ -39,7 +39,7 @@
     </div>
     <div class="form-group pull-right">
         <button class="btn btn-primary" @click="addPCData()">确认</button>
-        <button class="btn btn-danger" @click="cancelPCData()">取消</button>
+        <button class="btn btn-danger" @click="cancelPC()">取消</button>
     </div>
   </div>
 </div>
@@ -47,38 +47,47 @@
 
 <script>
 export default {
-  name: 'add',
+  name: 'edit',
   data () {
     return {
-      PCData: {
-          brand: '',
-          type: '',
-          price: 0,
-          date: '',
-          description: ''
-      }
+      PCData: {}
     }
   },
   methods:{
-    addPCData() {
-        let newData = {...this.PCData};
+    setPCData(){ // 获取点击编辑按钮时，根据电脑产品的id，获取详细信息
+        let id = this.$route.params.id;
 
         this.axios({
-            method: 'post',
-            url: 'http://localhost:3000/computers',
+            method: 'get',
+            url: 'http://localhost:3000/computers/' + id
+        })
+        .then(res => {
+            this.PCData = res.data;
+        });
+    },
+    addPCData() {
+        let newData = {...this.PCData},
+            id = this.$route.params.id;
+
+        this.axios({
+            method: 'put',
+            url: 'http://localhost:3000/computers/' + id,
             data: newData
         })
         .then(res => this.$router.push({
             name: 'home',
             params:{
                 type: 'add',
-                info: '添加电脑信息成功！'
+                info: '更新电脑信息成功！'
             }
         }));
     },
-    cancelPCData(){
-        this.$router.push('/');
+    cancelPC(){
+      this.$router.push('/');
     }
+  },
+  created(){
+    this.setPCData();
   }
 }
 </script>
