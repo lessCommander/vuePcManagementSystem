@@ -3,7 +3,7 @@
         <div class="container">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <div class="h4">电脑配置详情</div>
+                    <div class="h4">电脑详情</div>
                 </div>
                 <div class="panel-body">
                     <table class="table table-bordered table-striped table-hover">
@@ -38,10 +38,13 @@
                 <button class="btn btn-default" @click="cancelPC()">返回</button>
             </div>
         </div>
+        <vmodal ref="childmodal"></vmodal>
     </div>
 </template>
 
 <script>
+import vmodal from './Vmodal.vue'
+
 export default {
   name: 'detail',
   data() {
@@ -59,6 +62,9 @@ export default {
         .then(res => this.PCData = res.data);
     },
     delPC(){
+        this.$refs.childmodal.open();
+    },
+    confirmDel(){
         let id = this.PCData.id;
         this.axios({
             method: 'delete',
@@ -86,6 +92,9 @@ export default {
     cancelPC(){
         this.$router.push('/');
     }
+  },
+  components: {
+    vmodal
   },
   created() {
     this.showDetail();

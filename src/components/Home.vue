@@ -2,7 +2,7 @@
 <div class="home">
   <div class="container">
     <alert v-if="alertTxt != ''" :alert-msg="alertTxt" :alert-type="alertType" @dismiss="closeAlert"></alert>
-    <h2>个人电脑管理系统</h2>
+    <h2 class="text-center">个人电脑管理系统</h2>
     <div class="form-group">
       <div class="row">
         <div class="col-md-8 col-sm-10 col-xs-9">

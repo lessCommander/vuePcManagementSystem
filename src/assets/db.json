@@ -4,12 +4,13 @@
       "id": 1,
       "brand": "ThinkPad",
       "type": "T480",
-      "price": 12499
+      "price": 12499,
+      "date": "2019-01-12"
     },
     {
       "id": 2,
       "brand": "ASUS",
-      "type": "A540UP7200",
+      "type": "A540UP7201",
       "price": 3899,
       "date": "2018-12-31",
       "description": "This is a nice computer!!"
@@ -18,13 +19,14 @@
       "id": 3,
       "brand": "DELL",
       "type": "AT200",
-      "price": 7899
+      "price": 7899,
+      "date": "2018-12-05"
     },
     {
       "brand": "神州电脑",
       "type": "TB980",
       "price": 3588,
-      "date": "2018-9-30",
+      "date": "2019-01-17",
       "description": "e~~~!",
       "id": 7
     },
