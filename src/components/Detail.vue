@@ -1,6 +1,12 @@
 <template>
     <div class="detail">
         <div class="container">
+            <ol class="breadcrumb">
+                <li>
+                    <router-link to="/">主页</router-link>
+                </li>
+                <li class="active">详情</li>
+            </ol>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="h4">电脑详情</div>

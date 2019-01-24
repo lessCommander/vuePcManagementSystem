@@ -1,6 +1,9 @@
 <template>
 <div class="home">
   <div class="container">
+    <ol class="breadcrumb">
+        <li class="active">主页</li>
+    </ol>
     <alert v-if="alertTxt != ''" :alert-msg="alertTxt" :alert-type="alertType" @dismiss="closeAlert"></alert>
     <h2 class="text-center">个人电脑管理系统</h2>
     <div class="form-group">
@@ -27,7 +30,7 @@
         <tr v-for="(pc, inx) in filterLists" :key="inx">
           <td>{{pc.brand}}</td>
           <td>{{pc.type}}</td>
-          <td class="text-center">{{pc.price}} 元</td>
+          <td class="text-center">{{pc.price | formatPrice}} 元</td>
           <td class="text-center">
             <button class="btn btn-success" @click="showDetails(inx)">详情</button>
           </td>
@@ -53,10 +56,9 @@ export default {
   },
   computed:{ // 搜索过滤后的列表
     filterLists(){
-      let self = this;
       if(this.lists.length !== 0){
-        return this.lists.filter(function(val){
-          return val.brand.toLowerCase().match(self.searchTxt.toLowerCase());
+        return this.lists.filter(val => {
+          return val.brand.toLowerCase().match(this.searchTxt.toLowerCase());
         });
       }
     }
@@ -86,6 +88,14 @@ export default {
           id
         }
       });
+    }
+  },
+  filters:{
+    formatPrice(num){
+      if(typeof num === 'number'){
+        return num.toFixed(2);
+      }
+      return num;
     }
   },
   created(){
