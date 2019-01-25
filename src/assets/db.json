@@ -54,6 +54,14 @@
       "date": "2019-01-02",
       "description": "",
       "id": 13
+    },
+    {
+      "brand": "宏碁",
+      "type": "R8500",
+      "price": 3588,
+      "date": "2019-01-25",
+      "description": "",
+      "id": 14
     }
   ]
 }
