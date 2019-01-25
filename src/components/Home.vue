@@ -8,8 +8,15 @@
     <h2 class="text-center">个人电脑管理系统</h2>
     <div class="form-group">
       <div class="row">
-        <div class="col-md-8 col-sm-10 col-xs-9">
-          <input type="text" class="form-control" placeholder="搜索品牌" v-model="searchTxt">
+        <div class="col-md-2 col-sm-2 col-xs-2">
+          <select class="form-control" v-model="searchKey">
+            <option value="brand">按品牌</option>
+            <option value="type">按型号</option>
+            <option value="price">按价格</option>
+          </select>
+        </div>
+        <div class="col-md-6 col-sm-8 col-xs-7">
+          <input type="text" class="form-control" placeholder="输入文字搜索..." v-model="searchTxt">
         </div>
         <div class="col-md-2 hidden-sm hidden-xs"></div>
         <div class="col-md-2 col-sm-2 col-xs-3">
@@ -49,16 +56,19 @@ export default {
   data () {
     return {
       lists: [],
-      searchTxt: '',
-      alertTxt: '',
-      alertType: 'add'
+      searchKey: 'brand', // 搜索类型
+      searchTxt: '',      // 搜索文字
+      alertTxt: '',      // 提示框文字
+      alertType: 'add'   // 提示框颜色
     }
   },
   computed:{ // 搜索过滤后的列表
     filterLists(){
+      let patt = this.searchTxt.toLowerCase(),
+          key = this.searchKey;
       if(this.lists.length !== 0){
         return this.lists.filter(val => {
-          return val.brand.toLowerCase().match(this.searchTxt.toLowerCase());
+          return val[key].toString().toLowerCase().match(patt);
         });
       }
     }
